@@ -19,10 +19,6 @@ map <silent><F5> zfa}
 map <silent><F6> zo
 map <silent><F7> zc
 
-colorscheme herald
-syntax on
-set ruler
-
 " Set current window at least 84 wide and as tall as possible
 " while leaving other windows 5 lines tall
 set winwidth=84
@@ -30,6 +26,15 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
-" set guifont=gohufont-11
+" Make it look pretty
+colorscheme herald
+syntax on
+set ruler
+
+" Gohu font: http://font.gohu.eu/
 set guifont=gohufont-14
-" set guifont=Bitstream
+
+" Taglist Shortcut
+" Requires Vim-Taglist - http://vim-taglist.sourceforge.net/
+" Which in turn requires Exuberant Ctags - http://ctags.sourceforge.net/
+nnoremap <silent><F9> :TlistToggle<CR>
