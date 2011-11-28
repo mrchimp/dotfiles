@@ -22,10 +22,10 @@ map <silent><F7> zc
 
 " Set current window at least 84 wide and as tall as possible
 " while leaving other windows 5 lines tall
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
+"set winwidth=84
+"set winheight=5
+"set winminheight=5
+"set winheight=999
 
 " Make it look pretty
 if has ("gui_running")
@@ -56,3 +56,6 @@ au BufNewFile,BufRead *.mb execute Mb_setup()
 " map keys ---- mapbasic compile and run
 :map <f3> w:!C:/users/jgully/MB_Compile_105.bat "%" <CR><CR>
 :map <f4> w:!C:/users/jgully/MB_Run_105.bat "%" <CR><CR>
+
+" Turn on line numbers
+set number
