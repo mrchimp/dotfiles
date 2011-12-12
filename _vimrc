@@ -5,12 +5,15 @@ set softtabstop=2
 set expandtab
 set autoindent
 
-"Automatically detect file types
+" Turn on line numbers
+set number
+
+" Automatically detect file types
 filetype on
 
 " Colourscheme browsing
-map <silent><f3> :NEXTCOLOR<cr>
-map <silent><f2> :PREVCOLOR<cr>
+"map <silent><f3> :NEXTCOLOR<cr>
+"map <silent><f2> :PREVCOLOR<cr>
 
 " NERDTree file browser
 map <silent><F10> :NERDTree C:/XAMPP/htdocs<cr><cr>
@@ -19,13 +22,6 @@ map <silent><F10> :NERDTree C:/XAMPP/htdocs<cr><cr>
 map <silent><F5> zfa}
 map <silent><F6> zo
 map <silent><F7> zc
-
-" Set current window at least 84 wide and as tall as possible
-" while leaving other windows 5 lines tall
-"set winwidth=84
-"set winheight=5
-"set winminheight=5
-"set winheight=999
 
 " Make it look pretty
 if has ("gui_running")
@@ -54,8 +50,15 @@ endfunction
 au BufNewFile,BufRead *.mb execute Mb_setup()
 
 " map keys ---- mapbasic compile and run
-:map <f3> w:!C:/users/jgully/MB_Compile_105.bat "%" <CR><CR>
-:map <f4> w:!C:/users/jgully/MB_Run_105.bat "%" <CR><CR>
+:map <C-F1> w:!C:/users/jgully/MB_Compile_105.bat "%" <CR><CR>
+:map <C-F2> w:!C:/users/jgully/MB_Run_105.bat "%" <CR><CR>
+:map <C-F3> w:!C:/users/jgully/MB_Link_105.bat "%" <CR><CR>
 
-" Turn on line numbers
-set number
+
+" Show containing folder - ctrl-f5
+if has("gui_running")
+  if has("win32")
+    :map <silent> <C-F5> :if expand("%:p:h") != ""<CR>:!start explorer.exe %:p:h<CR>:endif<CR><CR>
+  endif
+endif
+
