@@ -1,4 +1,6 @@
-MrChimp's Vimrc
-===============
+MrChimp's Dotfiles
+==================
 
-Includes MapBasic syntax highlighting (uses Basic syntax), compiling and running .mb files.
+ * Vim
+ * Bash
+

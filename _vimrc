@@ -22,13 +22,12 @@ filetype on
 "set winheight=999
 
 " Make it look pretty
-if has ("gui_running")
-  colorscheme herald
-else 
-  colorscheme dawn
+if &t_Co > 2 || has ("gui_running")
+  syntax on
+  set hlsearch
+  colorscheme solarized 
 endif
 set background=dark
-syntax on
 set ruler
 
 " Gohu font: http://font.gohu.eu/
