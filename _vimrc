@@ -22,11 +22,15 @@ filetype on
 "set winheight=999
 
 " Make it look pretty
+set t_Co=256
+
 if &t_Co > 2 || has ("gui_running")
   syntax on
   set hlsearch
-  colorscheme solarized 
 endif
+
+colorscheme blacksea
+
 set background=dark
 set ruler
 
