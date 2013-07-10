@@ -23,3 +23,6 @@ fi
 
 # Make the prompt easier on the eye
 export PS1="\[\e]0;\w\a\]\n\[\e[31m\]\u@\H \[\e[33m\]\w\[\e[0m\]\n\$ "
+
+# Friendly bovine greeting
+fortune -s | cowsay
