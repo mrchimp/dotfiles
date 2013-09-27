@@ -8,7 +8,7 @@ function scpp {
 export -f scpp
 
 # typing is hard
-alias ls="ls -hsCF --color"
+alias ls="ls -hsCFlGp"
 alias untar="tar -xvzf"
 alias sss="ssh squashsk@squashskills.com"
 alias yhs="ssh yaddahos@yaddahost.co.uk"

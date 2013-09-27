@@ -1,2 +1,2 @@
-cp -r ./files/* ~
+cp -rv ./files/* ./files/.*  ~
 
