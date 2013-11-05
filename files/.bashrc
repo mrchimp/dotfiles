@@ -13,6 +13,9 @@ alias untar="tar -xvzf"
 alias sss="ssh squashsk@squashskills.com"
 alias yhs="ssh yaddahos@yaddahost.co.uk"
 alias dcs="ssh mrchimp@deviouschimp.co.uk"
+alias logs="tail -f /usr/local/apache/logs/error_log"
+alias modfiles="find . -type f -exec chmod 644 {} \;"
+alias moddirs="find . -type d -exec chmod 755 {} \;"
 
 # vim colour fix...i think
 if [ -e /usr/share/terminfo/x/xterm/x/xterm-256color ]; then
