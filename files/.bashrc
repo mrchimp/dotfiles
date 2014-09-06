@@ -35,12 +35,12 @@ export -f gitprompt
 
 # get current git branch
 function git_status() {
+  status=`git status 2>&1 | tee`
   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-  DIRTY=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
   if [ ! "${BRANCH}" == "" ]
   then
     STAT=`parse_git_dirty`
-    if [ ${DIRTY} == "0" ]; then
+    if [[ ${status} =~ "modified:" ]]; then
       echo "$green${BRANCH}${STAT}$nocol"
     else
       echo "$red${BRANCH}${STAT}$nocol"
