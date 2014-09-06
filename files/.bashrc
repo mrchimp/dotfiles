@@ -1,3 +1,10 @@
+
+# Set up some colours
+green="\[\e[0;32m\]"
+yellow="\[\e[0;33m\]"
+blue="\[\e[0;34m\]"
+nocol="\[\e[0m\]"
+
 # Upload a file to my site and copy the url to the clipboard
 function scpp {
   scp "$1" mrchimp@deviouschimp.co.uk:~/public_html/i;
@@ -6,6 +13,52 @@ function scpp {
 }
 
 export -f scpp
+
+# get current git branch
+function parse_git_branch() {
+  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  if [ ! "${BRANCH}" == "" ]
+  then
+    STAT=`parse_git_dirty`
+    echo "[${BRANCH}${STAT}]"
+  else
+    echo ""
+  fi
+}
+
+# get git status
+function parse_git_dirty {
+  status=`git status 2>&1 | tee`
+  dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+  untracked=`echo -m "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+  ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+  newfile=`echo -m ${status} 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+  renamed=`echo -m "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+  bits=''
+  if [ "${renamed}" == "0" ]; then
+    bits=">${bits}"
+  fi
+  if [ "${ahead}" == "0" ]; then
+    bits="*${bits}"
+  fi
+  if [ "${newfile}" == "0" ]; then
+    bits="+${bits}"
+  fi
+  if [ "${untracked}" == "0" ]; then
+    bits="?${bits}"
+  fi
+  if [ "${deleted}" == "0" ]; then
+    bits="x${bits}"
+  fi
+  if [ "${dirty}" == "0" ]; then
+    bits="!${bits}"
+  fi
+  if [ ! "${bits}" == "" ]; then
+    echo " ${bits}"
+  else
+    echo ""
+  fi
+}
 
 # typing is hard
 alias ls="ls -hsCFlGp"
@@ -25,7 +78,8 @@ else
 fi
 
 # Make the prompt easier on the eye
-export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\H \[\e[33m\]\w\[\e[0m\]\n\$ "
+export PS1="$green\u@\H$nocol $yellow\w$nocol $blue\`parse_git_branch\`$nocol \n\$ "
 
 # Friendly bovine greeting
 fortune -s | cowsay
+
