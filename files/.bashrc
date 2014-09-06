@@ -40,7 +40,7 @@ function git_status() {
     git_status=`git status 2>&1 | tee`
     STAT=`parse_git_dirty`
     
-    if [[ ${git_status} =~ "working directory_clean" ]]; then
+    if [[ ${git_status} =~ "working directory clean" ]]; then
       echo "$green${BRANCH}${STAT}$nocol"
     else
       echo "$red${BRANCH}${STAT}$nocol"
