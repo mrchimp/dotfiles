@@ -15,13 +15,36 @@ function scpp {
 
 export -f scpp
 
+# Help for git prompt syntax
+function gitprompt () {
+  echo ""
+  echo "Git status of current directory is shown in command prompt."
+  echo "Shows red if repo is dirty, else green."
+  echo ""
+  echo " >  File renamed"
+  echo " ^n Ahead of remote by n commits"
+  echo " vn Behind remote by n commits"
+  echo " +  New file"
+  echo " -  File deleted"
+  echo " ~  Modified File"
+  echo " ?  Untracked file"
+  echo ""
+}
+
+export -f gitprompt
+
 # get current git branch
-function parse_git_branch() {
+function git_status() {
   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  DIRTY=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
   if [ ! "${BRANCH}" == "" ]
   then
     STAT=`parse_git_dirty`
-    echo "[${BRANCH}${STAT}]"
+    if [ ${DIRTY} == "0" ]; then
+      echo "$green${BRANCH}${STAT}$nocol"
+    else
+      echo "$red${BRANCH}${STAT}$nocol"
+    fi
   else
     echo ""
   fi
@@ -29,30 +52,39 @@ function parse_git_branch() {
 
 # get git status
 function parse_git_dirty {
-  status=`git status 2>&1 | tee`
-  dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
-  untracked=`echo -m "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
-  ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-  newfile=`echo -m ${status} 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
-  renamed=`echo -m "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
-  bits=''
-  if [ "${renamed}" == "0" ]; then
+  branch=`git rev-parse --abbrev-ref HEAD`
+  git_status="$(git status 2> /dev/null)"
+  bits=""
+
+#echo $git_status
+
+  if [[ ${git_status} =~ "renamed:" ]]; then
     bits=">${bits}"
   fi
-  if [ "${ahead}" == "0" ]; then
-    bits="*${bits}"
+
+  ahead_pattern="Your[[:space:]]branch[[:space:]]is[[:space:]](ahead|behind).*by[[:space:]]([[:digit:]])"
+  if [[ ${git_status} =~ ${ahead_pattern} ]]; then
+    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+      bits="^${BASH_REMATCH[2]}${bits}"
+    else
+      bits="v${BASH_REMATCH[2]}${bits}"
+    fi
   fi
-  if [ "${newfile}" == "0" ]; then
+  
+  if [[ ${git_status} =~ "new file:" ]]; then
     bits="+${bits}"
   fi
-  if [ "${untracked}" == "0" ]; then
+
+  if [[ ${git_status} =~ "deleted:" ]]; then
+    bits="-${bits}"
+  fi
+
+  if [[ ${git_status} =~ "modified:" ]]; then
+    bits="~${bits}"
+  fi
+
+  if [[ ${git_status} =~ "Untracked files" ]]; then
     bits="?${bits}"
-  fi
-  if [ "${deleted}" == "0" ]; then
-    bits="x${bits}"
-  fi
-  if [ "${dirty}" == "0" ]; then
-    bits="!${bits}"
   fi
   if [ ! "${bits}" == "" ]; then
     echo " ${bits}"
@@ -74,26 +106,31 @@ alias please="sudo $(history -p \!\!)"
 
 # vim colour fix...i think
 if [ -e /usr/share/terminfo/x/xterm/x/xterm-256color ]; then
-  export TERM='xterm=256color'
+  export TERM='xterm-256color'
 else
   export TERM='xterm-color'
 fi
 
+# Construct a prompt string
 make_prompt () {
-  PS1=''
+  # Show current user and host. Red if root, else green
   if [[ $EUID == 0 ]]; then
-    PS1+="$red\H$nocol"
+    PS1="$red\H$nocol"
   else
-    PS1+="$green\u@\H$nocol"
+    PS1="$green\u@\H$nocol"
   fi
+  
+  # Show current directory
   PS1+=":$yellow\w$nocol"
-  PS1+=" $blue$(parse_git_branch)$nocol"
+
+  # Show git status of current directory.
+  PS1+=" $(git_status)"
+
+  # Put input on a new line
   PS1+=" \n\$ "
 }
 
 PROMPT_COMMAND='make_prompt'
-
-# Make the prompt easier on the eye
 
 # Friendly bovine greeting
 fortune -s | cowsay
