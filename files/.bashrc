@@ -1,5 +1,6 @@
 
 # Set up some colours
+red="\[\e[0;31m\]"
 green="\[\e[0;32m\]"
 yellow="\[\e[0;33m\]"
 blue="\[\e[0;34m\]"
@@ -69,7 +70,7 @@ alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
 
 # Sudo previous command
-alias please="sudo $(history -p\!\!)"
+alias please="sudo $(history -p \!\!)"
 
 # vim colour fix...i think
 if [ -e /usr/share/terminfo/x/xterm/x/xterm-256color ]; then
@@ -78,8 +79,21 @@ else
   export TERM='xterm-color'
 fi
 
+make_prompt () {
+  PS1=''
+  if [[ $EUID == 0 ]]; then
+    PS1+="$red\H$nocol"
+  else
+    PS1+="$green\u@\H$nocol"
+  fi
+  PS1+=":$yellow\w$nocol"
+  PS1+=" $blue$(parse_git_branch)$nocol"
+  PS1+=" \n\$ "
+}
+
+PROMPT_COMMAND='make_prompt'
+
 # Make the prompt easier on the eye
-export PS1="$green\u@\H$nocol $yellow\w$nocol $blue\`parse_git_branch\`$nocol \n\$ "
 
 # Friendly bovine greeting
 fortune -s | cowsay
