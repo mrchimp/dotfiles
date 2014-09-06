@@ -56,8 +56,6 @@ function parse_git_dirty {
   git_status="$(git status 2> /dev/null)"
   bits=""
 
-#echo $git_status
-
   if [[ ${git_status} =~ "renamed:" ]]; then
     bits=">${bits}"
   fi
