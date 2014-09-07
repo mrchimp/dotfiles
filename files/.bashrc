@@ -100,7 +100,7 @@ alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
 
 # Sudo previous command
-alias please="sudo $(history -p \!\!)"
+alias please='sudo $(history -p \!\!)'
 
 # vim colour fix...i think
 if [ -e /usr/share/terminfo/x/xterm/x/xterm-256color ]; then
