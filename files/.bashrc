@@ -102,6 +102,12 @@ alias moddirs="find . -type d -exec chmod 755 {} \;"
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
 
+# Create a directory if it doesn't exist and then cd to it
+# The comment's longer than the code.
+function mcd () {
+  test -e $1 || mkdir $1; cd $1;
+}
+
 # vim colour fix...i think
 if [ -e /usr/share/terminfo/x/xterm/x/xterm-256color ]; then
   export TERM='xterm-256color'
