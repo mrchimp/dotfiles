@@ -1,10 +1,25 @@
 
+
+platform='unknown'
+unamestr=`uname`
+
 # Set up some colours
-red="\[\e[0;31m\]"
-green="\[\e[0;32m\]"
-yellow="\[\e[0;33m\]"
-blue="\[\e[0;34m\]"
-nocol="\[\e[0m\]"
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+  red="\e[0;31m"
+  green="\e[0;32m"
+  yellow="\e[0;33m"
+  blue="\e[0;34m"
+  nocol="\e[0m"
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  platform='osx'
+  red="\[\e[0;31m\]"
+  green="\[\e[0;32m\]"
+  yellow="\[\e[0;33m\]"
+  blue="\[\e[0;34m\]"
+  nocol="\[\e[0m\]"
+fi
+
 
 # Upload a file to my site and copy the url to the clipboard
 function scpp {
@@ -29,6 +44,43 @@ function gitprompt () {
   echo " ~  Modified File"
   echo " ?  Untracked file"
   echo ""
+}
+
+# Tmux cheatsheet
+function tmuxhelp () {
+  echo "Press ctrl+a and then..."
+  echo ""
+  echo -e "${blue}Tmux Commands${nocol}                     ${blue}Windows (Tab)${nocol}         "
+  echo "                                                        "
+  echo "List   ls                        Create      c         "
+  echo "New    -s <session>              Close       &         "
+  echo "Attach att -t <session>          List        w         "
+  echo "Kill   kill-session -t <session> Rename      , <name>  "
+  echo "Rename                           Last        l         "
+  echo "  rename-session -t <old> <new>  Goto #      <0-9>     "
+  echo "                                 Next        n         "
+  echo "                                 Previous    p         "
+  echo "                                                        "
+  echo -e "${blue}Controls${nocol}                         ${blue}Panes (Split Window)${nocol}   "
+  echo "                                                        "
+  echo "Choose  w <name>                 Show nums   q          "
+  echo "Detach  d                        Split Horiz \"         "
+  echo "List    =                        Split Vert  %          "
+  echo "Buffer  PAGEUPDN                 Pane>Window !          "
+  echo "Command : <command>              Kill        x          "
+  echo "Paste   ]                                               "
+  echo "Copy    [ ... SPACE ... ENTER    Reorganize  SPACE      "
+  echo "        Move:  H J K L           Expand      ALT+ARROW  "
+  echo "        Start: SPACE             Resize      CTRL+ARROW "
+  echo "        Copy:  ENTER             Resize x n  <n> ARROW  "
+  echo "                                                        "
+  echo -e "${blue}Sessions (Set of window)${nocol}         Select      ARROW      "
+  echo "                                 Previous    {          "
+  echo "New      :new [-s <name>]        Next        }          "
+  echo "Rename   $                       Switch      o          "
+  echo "List     s                       Swap        ^o         "
+  echo "Next     (                       Last        ;          "
+  echo "Previous )                                              "
 }
 
 export -f gitprompt
@@ -132,7 +184,7 @@ make_prompt () {
   PS1+=" $(git_status)"
 
   # Put input on a new line
-  PS1+=" \n $blue★ $nocol "
+  PS1+=" \n ${blue}★ $nocol "
 }
 
 PROMPT_COMMAND='make_prompt'
