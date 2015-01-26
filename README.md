@@ -3,6 +3,7 @@ MrChimp's Dotfiles
 
  * Vim
  * Bash
+ * Tmux
 
 ## What does it do? ##
 
@@ -26,7 +27,25 @@ __Vim__
 * Tag list - requires vim-taglist (http://vim-taglist.sourceforge.net) and Ctags (http://ctags.sourceforge.net/)
 * NERDTree file browser (https://github.com/scrooloose/nerdtree)
 
+__Tmux__
+
+* Use solarized color scheme
+* Enable mouse
+* Improve status bar
+* Use ctrl-a instead of ctrl-b
+
+## Requirements ##
+
+* git
+* 
+
+
 ## Installing ##
+
+> ***Warning!***
+>
+> Setup.sh will overwrite existing config files without warning!
+> Use with caution.
 
 Get the code
 
@@ -41,7 +60,7 @@ Install to `~` by default.
 
 Alternatively, install to another directory
 
-    sh setup.sh /home/foo
+   sh setup.sh /home/foo
 
 ## Tidying up ##
 
