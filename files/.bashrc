@@ -98,6 +98,7 @@ alias dcs="ssh mrchimp@deviouschimp.co.uk"
 alias apachelog="tail -f /usr/local/apache/logs/error_log"
 alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
+alias tmux="tmux -2"
 
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
