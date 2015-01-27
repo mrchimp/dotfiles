@@ -29,7 +29,7 @@ if &t_Co > 2 || has ("gui_running")
   set hlsearch
 endif
 
-colorscheme zmrok
+colorscheme twilight
 
 set background=dark
 set ruler

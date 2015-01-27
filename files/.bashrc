@@ -1,24 +1,27 @@
 
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+export LANGUAGE=en_GB.UTF-8
 
 platform='unknown'
 unamestr=`uname`
 
 # Set up some colours
-if [[ "$unamestr" == 'Linux' ]]; then
-  platform='linux'
-  red="\e[0;31m"
-  green="\e[0;32m"
-  yellow="\e[0;33m"
-  blue="\e[0;34m"
-  nocol="\e[0m"
-elif [[ "$unamestr" == 'Darwin' ]]; then
+#if [[ "$unamestr" == 'Linux' ]]; then
+#  platform='linux'
+#  red="\e[0;31m"
+#  green="\e[0;32m"
+#  yellow="\e[0;33m"
+#  blue="\e[0;34m"
+#  nocol="\e[0m"
+#elif [[ "$unamestr" == 'Darwin' ]]; then
   platform='osx'
   red="\[\e[0;31m\]"
   green="\[\e[0;32m\]"
   yellow="\[\e[0;33m\]"
   blue="\[\e[0;34m\]"
   nocol="\[\e[0m\]"
-fi
+#fi
 
 
 # Upload a file to my site and copy the url to the clipboard
@@ -161,13 +164,6 @@ function mcd () {
   test -e $1 || mkdir $1; cd $1;
 }
 
-# vim colour fix...i think
-if [ -e /usr/share/terminfo/x/xterm/x/xterm-256color ]; then
-  export TERM='xterm-256color'
-else
-  export TERM='xterm-color'
-fi
-
 # Construct a prompt string
 make_prompt () {
   # Show current user and host. Red if root, else green
@@ -184,7 +180,7 @@ make_prompt () {
   PS1+=" $(git_status)"
 
   # Put input on a new line
-  PS1+=" \n ${blue}★ $nocol "
+  PS1+=" \n ${blue}★${nocol} "
 }
 
 PROMPT_COMMAND='make_prompt'
