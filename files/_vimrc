@@ -62,3 +62,7 @@ nnoremap <silent><F9> :TlistToggle<CR>
 
 " NERDTree file browser
 " map <silent><F10> :NERDTree C:/XAMPP/htdocs<cr><cr>
+
+" Use unix line endings
+set ff=unix
+
