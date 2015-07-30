@@ -185,6 +185,15 @@ make_prompt () {
 
 PROMPT_COMMAND='make_prompt'
 
+# Read a file out loud (strip out text in square brackets)
+function tailtalk {
+  tail --lines=0 -f $1 \
+    | grep --line-buffered -F "PHP Fatal error" \
+    | sed -u -e 's/\[[^]]*\]//g' \
+    | while read line ; do say $line; echo $line ; done
+}
+export tailtalk
+
 # Friendly bovine greeting
 fortune -s | cowsay
 
