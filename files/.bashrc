@@ -155,6 +155,13 @@ alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
 
+# Git shortcuts
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gpush="git push origin master"
+alias gpull="git pull origin master"
+
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
 
