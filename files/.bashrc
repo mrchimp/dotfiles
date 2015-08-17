@@ -155,6 +155,13 @@ alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
 
+# Git shortcuts
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gpush="git push origin master"
+alias gpull="git pull origin master"
+
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
 
@@ -184,6 +191,15 @@ make_prompt () {
 }
 
 PROMPT_COMMAND='make_prompt'
+
+# Read a file out loud (strip out text in square brackets)
+function tailtalk {
+  tail --lines=0 -f $1 \
+    | grep --line-buffered -F "PHP Fatal error" \
+    | sed -u -e 's/\[[^]]*\]//g' \
+    | while read line ; do say $line; echo $line ; done
+}
+export tailtalk
 
 # Friendly bovine greeting
 fortune -s | cowsay
