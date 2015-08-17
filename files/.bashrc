@@ -3,25 +3,15 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 
-platform='unknown'
 unamestr=`uname`
 
 # Set up some colours
-#if [[ "$unamestr" == 'Linux' ]]; then
-#  platform='linux'
-#  red="\e[0;31m"
-#  green="\e[0;32m"
-#  yellow="\e[0;33m"
-#  blue="\e[0;34m"
-#  nocol="\e[0m"
-#elif [[ "$unamestr" == 'Darwin' ]]; then
-  platform='osx'
-  red="\[\e[0;31m\]"
-  green="\[\e[0;32m\]"
-  yellow="\[\e[0;33m\]"
-  blue="\[\e[0;34m\]"
-  nocol="\[\e[0m\]"
-#fi
+red="\e[0;31m"
+green="\e[0;32m"
+yellow="\e[0;33m"
+blue="\e[0;34m"
+nocol="\e[0m"
+bold="\e[1m"
 
 
 # Upload a file to my site and copy the url to the clipboard
@@ -33,9 +23,18 @@ function scpp {
 
 export -f scpp
 
+# This is just for my own testing...
+function show_colors () {
+  echo This is normal text
+  echo -e "${red}This colour is red.${nocol}"
+  echo -e "${green}This colour is green.${nocol}"
+  echo -e "${yellow}This colour is yellow.${nocol}"
+  echo -e "${blue}This colour is blue.${nocol}"
+  echo -e "${bold}This 'colour' is bold.${nocol}"
+}
+
 # Help for git prompt syntax
 function gitprompt () {
-  echo ""
   echo "Git status of current directory is shown in command prompt."
   echo "Shows red if repo is dirty, else green."
   echo ""
@@ -46,44 +45,39 @@ function gitprompt () {
   echo " -  File deleted"
   echo " ~  Modified File"
   echo " ?  Untracked file"
-  echo ""
 }
 
 # Tmux cheatsheet
 function tmuxhelp () {
   echo "Press ctrl+a and then..."
   echo ""
-  echo -e "${blue}Tmux Commands${nocol}                     ${blue}Windows (Tab)${nocol}         "
-  echo "                                                        "
-  echo "List   ls                        Create      c         "
-  echo "New    -s <session>              Close       &         "
-  echo "Attach att -t <session>          List        w         "
-  echo "Kill   kill-session -t <session> Rename      , <name>  "
-  echo "Rename                           Last        l         "
-  echo "  rename-session -t <old> <new>  Goto #      <0-9>     "
-  echo "                                 Next        n         "
-  echo "                                 Previous    p         "
-  echo "                                                        "
-  echo -e "${blue}Controls${nocol}                         ${blue}Panes (Split Window)${nocol}   "
-  echo "                                                        "
-  echo "Choose  w <name>                 Show nums   q          "
-  echo "Detach  d                        Split Horiz \"         "
-  echo "List    =                        Split Vert  %          "
-  echo "Buffer  PAGEUPDN                 Pane>Window !          "
-  echo "Command : <command>              Kill        x          "
-  echo "Paste   ]                                               "
-  echo "Copy    [ ... SPACE ... ENTER    Reorganize  SPACE      "
-  echo "        Move:  H J K L           Expand      ALT+ARROW  "
-  echo "        Start: SPACE             Resize      CTRL+ARROW "
-  echo "        Copy:  ENTER             Resize x n  <n> ARROW  "
-  echo "                                                        "
-  echo -e "${blue}Sessions (Set of window)${nocol}         Select      ARROW      "
-  echo "                                 Previous    {          "
-  echo "New      :new [-s <name>]        Next        }          "
-  echo "Rename   $                       Switch      o          "
-  echo "List     s                       Swap        ^o         "
-  echo "Next     (                       Last        ;          "
-  echo "Previous )                                              "
+  echo -e "${blue}Tmux Commands${nocol}                             ${blue}Windows (Tab)${nocol}"
+  echo -e " ${yellow}List${nocol}    ls                                ${yellow}Create${nocol}      c"
+  echo -e " ${yellow}New${nocol}     -s <session>                      ${yellow}Close${nocol}       &"
+  echo -e " ${yellow}Attach${nocol}  att -t <session>                  ${yellow}List${nocol}        w"
+  echo -e " ${yellow}Kill${nocol}    kill-session -t <session>         ${yellow}Rename${nocol}      , <name>"
+  echo -e " ${yellow}Rename${nocol}  rename-session -t <old> <new>     ${yellow}Last${nocol}        l"
+  echo -e " ${yellow}Goto${nocol}    # <0-9>                           ${yellow}Next${nocol}        n"
+  echo -e "                                           ${yellow}Previous${nocol}    p"
+  echo -e ""
+  echo -e "${blue}Controls${nocol}                                 ${blue}Panes (Split Window)${nocol}"
+  echo -e " ${yellow}Choose${nocol}     w <name>                      ${yellow}Show nums${nocol}   q"
+  echo -e " ${yellow}Detach${nocol}     d                             ${yellow}Split Horiz${nocol} \""
+  echo -e " ${yellow}List${nocol}       =                             ${yellow}Split Vert${nocol}  %"
+  echo -e " ${yellow}Buffer${nocol}     PAGEUPDN                      ${yellow}Pane>Window${nocol} !"
+  echo -e " ${yellow}Command${nocol}    : <command>                   ${yellow}Kill${nocol}        x"
+  echo -e " ${yellow}Paste${nocol}      p                             ${yellow}Reorganize${nocol}  SPACE"
+  echo -e " ${yellow}Copy Mode${nocol}  ESC                           ${yellow}Expand${nocol}      ALT+ARROW"
+  echo -e "    - ${yellow}Move${nocol}  hjkl                          ${yellow}Resize${nocol}      CTRL+ARROW"
+  echo -e "    - ${yellow}Start${nocol} v                             ${yellow}Resize x n${nocol}  <n> ARROW"
+  echo -e "    - ${yellow}Copy${nocol}  y                             ${yellow}Select${nocol}      ARROW"
+  echo -e "                                          ${yellow}Previous${nocol}    {"
+  echo -e "${blue}Sessions (Set of window)${nocol}                  ${yellow}Next${nocol}        }"
+  echo -e " ${yellow}New${nocol}      :new [-s <name>]                ${yellow}Switch${nocol}      o"
+  echo -e " ${yellow}Rename${nocol}   $                               ${yellow}Swap${nocol}        ^o"
+  echo -e " ${yellow}List${nocol}     s                               ${yellow}Last${nocol}        ;"
+  echo -e " ${yellow}Next${nocol}     ("
+  echo -e " ${yellow}Previous${nocol} )"
 }
 
 export -f gitprompt
@@ -156,9 +150,10 @@ alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
 
 # Git shortcuts
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
+alias gits="git status"
+alias gita="git add"
+alias gitc="git commit"
+alias gitd="git diff"
 alias gpush="git push origin master"
 alias gpull="git pull origin master"
 
