@@ -187,7 +187,7 @@ make_prompt () {
   PS1+=" $(git_status)"
 
   # Put input on a new line
-  PS1+=" \n ${blue}★ ${nocol} "
+  PS1+=" \n ${blue}⚡ ${nocol} "
 }
 
 PROMPT_COMMAND='make_prompt'
