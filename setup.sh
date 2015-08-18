@@ -9,3 +9,5 @@ cp -rv ./files/_vimrc $dest
 cp -rv ./files/.vim $dest
 cp -rv ./files/.tmux.conf $dest
 
+sudo apt-get install fortune cowsay
+
