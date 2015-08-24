@@ -14,6 +14,9 @@ set number
 " Automatically detect file types
 filetype on
 
+" Interpret .md files as markdown
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
 " Set current window at least 84 wide and as tall as possible
 " while leaving other windows 5 lines tall
 "set winwidth=84
