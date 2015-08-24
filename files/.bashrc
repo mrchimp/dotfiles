@@ -6,12 +6,12 @@ export LANGUAGE=en_GB.UTF-8
 unamestr=`uname`
 
 # Set up some colours
-red="\e[0;31m"
-green="\e[0;32m"
-yellow="\e[0;33m"
-blue="\e[0;34m"
-nocol="\e[0m"
-bold="\e[1m"
+red="\033[31m"
+green="\033[32m"
+yellow="\033[33m"
+blue="\033[34m"
+nocol="\033[0m"
+bold="\033[1m"
 
 
 # Upload a file to my site and copy the url to the clipboard
@@ -170,19 +170,19 @@ function mcd () {
 make_prompt () {
   # Show current user and host. Red if root, else green
   if [[ $EUID == 0 ]]; then
-    PS1="$red\H$nocol"
+    PS1="\[$red\]\H\[$nocol\]"
   else
-    PS1="$green\u@\H$nocol"
+    PS1="\[$green\]\u@\H\[$nocol\]"
   fi
   
   # Show current directory
-  PS1+=":$yellow\w$nocol"
+  PS1+=":\[$yellow\]\w\[$nocol\]"
 
   # Show git status of current directory.
   PS1+=" $(git_status)"
 
   # Put input on a new line
-  PS1+=" \n ${blue}⚡ ${nocol} "
+  PS1+=" \n \[${blue}\]⚡ \[${nocol}\] "
 }
 
 PROMPT_COMMAND='make_prompt'
