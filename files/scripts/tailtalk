@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Read a file out loud and output it to the terminal too.
+# Text inside square brackets.
+
+tail --lines=0 -f $1 \
+  | grep --line-buffered -F "PHP Fatal error" \
+  | sed -u -r 's/\[[^]]*\]//g' \
+  | while read line ; do say $line; echo $line ; done
+

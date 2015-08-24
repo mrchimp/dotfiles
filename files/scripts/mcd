@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Create a directory if it doesn't exist and then cd to it
+# The comment's longer than the code.
+test -e $1 || mkdir $1; cd $1;

@@ -8,6 +8,9 @@ cp -rv ./files/.bashrc $dest
 cp -rv ./files/_vimrc $dest
 cp -rv ./files/.vim $dest
 cp -rv ./files/.tmux.conf $dest
+cp -rv ./files/scripts $dest
+
+source ~/scripts/pathadd ~/scripts
 
 sudo apt-get install fortune cowsay
 

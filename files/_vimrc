@@ -51,6 +51,19 @@ map <silent><F5> zfa}
 map <silent><F6> zo
 map <silent><F7> zc
 
+" Enable CTRL+HJKL window splitting
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+" Split to bottom right
+set splitbelow
+set splitright
+
+
+
 " Show containing folder - ctrl-f5
 if has("gui_running")
   if has("win32")
