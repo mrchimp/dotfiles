@@ -116,3 +116,5 @@ PROMPT_COMMAND='make_prompt'
 # Friendly bovine greeting
 fortune -s | cowsay
 
+source ~/scripts/pathadd ~/scripts
+

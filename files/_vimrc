@@ -1,3 +1,29 @@
+"###### Start Vundle Stuff #######
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Colorschemes
+Plugin 'zsoltf/vim-maui'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+"###### End Vundle Stuff #######
+
+
 " Set tabs to 2 spaces
 set tabstop=8
 set shiftwidth=2
@@ -32,9 +58,9 @@ if &t_Co > 2 || has ("gui_running")
   set hlsearch
 endif
 
-colorscheme twilight
-
 set background=dark
+colorscheme maui
+
 set ruler
 
 " Gohu font: http://font.gohu.eu/
@@ -57,12 +83,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Toggle Nerdtree with ^n
+map <C-n> :NERDTreeToggle<CR>
 
 " Split to bottom right
 set splitbelow
 set splitright
-
-
 
 " Show containing folder - ctrl-f5
 if has("gui_running")
@@ -81,4 +107,11 @@ nnoremap <silent><F9> :TlistToggle<CR>
 
 " Use unix line endings
 set ff=unix
+
+" Show nerdtree on startup if there's nothing else to do
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Exit vim if only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
