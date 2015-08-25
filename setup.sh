@@ -9,6 +9,7 @@ cp -rv ./files/_vimrc $dest
 cp -rv ./files/.vim $dest
 cp -rv ./files/.tmux.conf $dest
 cp -rv ./files/scripts $dest
+cp -rv ./files/cheatsheets $dest
 
 source ~/scripts/pathadd ~/scripts
 

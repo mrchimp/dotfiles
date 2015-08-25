@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mdr ~/cheatsheets/${1}.md
+
