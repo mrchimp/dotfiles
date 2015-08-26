@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'mattn/emmet-vim'
 
 " Colorschemes
 Plugin 'zsoltf/vim-maui'
@@ -25,7 +26,7 @@ filetype plugin indent on    " required
 
 
 " Set tabs to 2 spaces
-set tabstop=8
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
@@ -83,6 +84,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Use tab for Emmet completion
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
 " Toggle Nerdtree with ^n
 map <C-n> :NERDTreeToggle<CR>
 
@@ -113,5 +117,5 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Exit vim if only nerdtree is open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
