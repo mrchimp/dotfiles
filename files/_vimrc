@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'genoma/vim-less'
 
 " Colorschemes
 Plugin 'zsoltf/vim-maui'
