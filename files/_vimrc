@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'genoma/vim-less'
 Plugin 'mattn/emmet-vim'
 
 " Colorschemes
@@ -125,4 +126,7 @@ if &term =~ '^screen'
   " tmux knows the extended mouse mode
   set ttymouse=xterm2
 endif
+
+" Show hidden files
+let NERDTreeShowHidden=1
 
