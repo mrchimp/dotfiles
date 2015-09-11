@@ -67,7 +67,7 @@ set ruler
 
 " If we have a GUI, try to use Consolas 
 if has("gui_gtk2")
-  set guifont=Consolas\ 11
+  set guifont=Ubuntu\ Mono\ 13
 elseif has("gui_macvim")
   set guifont=Consolas:h11
 elseif has("gui_win32")
