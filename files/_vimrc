@@ -85,6 +85,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Close buffer but don't close split
+map <C-c> :bp\|bd #<CR>
+
 " Use tab for Emmet completion
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
