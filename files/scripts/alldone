@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Commit everything.
+git add -A && git commit -m "$*"
+
