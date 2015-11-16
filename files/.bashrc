@@ -92,6 +92,9 @@ alias gpull="git pull origin master"
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
 
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
 # Construct a prompt string
 make_prompt () {
   # Show current user and host. Red if root, else green
