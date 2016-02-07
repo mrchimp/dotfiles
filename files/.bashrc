@@ -14,13 +14,22 @@ unamestr=`uname`
 #bold="\033[1m"
 source ~/scripts/colors
 
+# Because typing "cd .." repeatedly is boring.
+up() {
+  local x='';
+  for i in $(seq ${1:-1}); do
+    x="$x../";
+  done;
+  cd $x;
+}
+
 # get current git branch
 function git_status() {
   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
   if [ ! "${BRANCH}" == "" ]; then
     git_status=`git status 2>&1 | tee`
     STAT=`parse_git_dirty`
-    
+
     if [[ ${git_status} =~ "working directory clean" ]]; then
       echo "$green${BRANCH}${STAT}$nocol"
     else
@@ -49,7 +58,7 @@ function parse_git_dirty {
       bits="v${BASH_REMATCH[2]}${bits}"
     fi
   fi
-  
+
   if [[ ${git_status} =~ "new file:" ]]; then
     bits="+${bits}"
   fi
@@ -80,6 +89,8 @@ alias apachelog="tail -f /usr/local/apache/logs/error_log"
 alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
+alias art="php artisan"
+alias lolinit="lolcommits --enable --delay=2 --fork"
 
 # Git shortcuts
 alias gits="git status"
@@ -103,7 +114,7 @@ make_prompt () {
   else
     PS1="\[$green\]\u@\H\[$nocol\]"
   fi
-  
+
   # Show current directory
   PS1+=":\[$yellow\]\w\[$nocol\]"
 
@@ -120,4 +131,3 @@ PROMPT_COMMAND='make_prompt'
 fortune -s | cowsay
 
 source ~/scripts/pathadd ~/scripts
-
