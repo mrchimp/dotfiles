@@ -92,12 +92,14 @@ alias tmux="tmux -2"
 alias art="php artisan"
 alias lolinit="lolcommits --enable --delay=2 --fork"
 alias ack="ack-grep"
+alias c="clear"
 
 # Git shortcuts
 alias gits="git status"
 alias gita="git add"
 alias gitc="git commit"
 alias gitd="git diff"
+alias gitb="git branch"
 alias gpush="git push origin master"
 alias gpull="git pull origin master"
 
