@@ -91,7 +91,6 @@ alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
 alias art="php artisan"
 alias lolinit="lolcommits --enable --delay=2 --fork"
-alias ack="ack-grep"
 alias c="clear"
 
 # Git shortcuts
