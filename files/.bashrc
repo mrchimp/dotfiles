@@ -100,6 +100,7 @@ alias gitd="git diff"
 alias gitb="git branch"
 alias gpush="git push origin master"
 alias gpull="git pull origin master"
+alias ggraph="git log --graph --decorate --pretty=oneline"
 
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
