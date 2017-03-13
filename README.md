@@ -11,21 +11,21 @@ This is my personal setup so you probably dont want to just clone and use it. Th
 
 __Bash__
 
-* Colourise the command prompt.
-* Show current username, hostname, current directory and git status in command prompt.
-* Add a command to quickly copy a file to a remote server and copy a public URL to the clipboard (this is set to work with my personal site - you can easily customise this to work with your own server).
+* Install [bash-powerline](https://github.com/riobard/bash-powerline)
+* Add a command (dcs) to quickly copy a file to a remote server and copy a public URL to the clipboard (this is set to work with my personal site - you can easily customise this to work with your own server).
 * Add a bunch of alias commands. (Again, some of these are personal).
 * Get a friendly bovine greeting when opening a terminal.
 
 __Vim__
 
+* Adds [Vundle](https://github.com/VundleVim/Vundle.vim) for plugin management and installs some plugins by default (see _vimrc for details).
 * Add a whole bunch of colorschemes and enable better colour settings and dark background
 * Tabs 2 spaces wide (except in Python files)
 * Use line numbers, autoindent, expandtab, fieltype detection, ruler
-* Use Gohu font by default (not included - http://font.gohu.eu)
+* Use [Gohu font](http://font.gohu.eu) by default (not included - )
 * Shortcuts for colourscheme browsing, code folding, show directory in explorer (windows only)
-* Tag list - requires vim-taglist (http://vim-taglist.sourceforge.net) and Ctags (http://ctags.sourceforge.net/)
-* NERDTree file browser (https://github.com/scrooloose/nerdtree)
+* Tag list - requires [vim-taglist](http://vim-taglist.sourceforge.net) and [Ctags](http://ctags.sourceforge.net/)
+* [NERDTree file browser](https://github.com/scrooloose/nerdtree)
 
 __Tmux__
 
@@ -33,12 +33,6 @@ __Tmux__
 * Enable mouse
 * Improve status bar
 * Use ctrl-a instead of ctrl-b
-
-## Requirements ##
-
-* git
-* 
-
 
 ## Installing ##
 
@@ -60,7 +54,7 @@ Install to `~` by default.
 
 Alternatively, install to another directory
 
-   sh setup.sh /home/foo
+    sh setup.sh /home/foo
 
 ## Tidying up ##
 
