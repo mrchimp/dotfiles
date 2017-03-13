@@ -23,64 +23,6 @@ up() {
   cd $x;
 }
 
-# get current git branch
-function git_status() {
-  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-  if [ ! "${BRANCH}" == "" ]; then
-    git_status=`git status 2>&1 | tee`
-    STAT=`parse_git_dirty`
-
-    if [[ ${git_status} =~ "working directory clean" ]]; then
-      echo "$green${BRANCH}${STAT}$nocol"
-    else
-      echo "$red${BRANCH}${STAT}$nocol"
-    fi
-  else
-    echo ""
-  fi
-}
-
-# get git status
-function parse_git_dirty {
-  branch=`git rev-parse --abbrev-ref HEAD`
-  git_status="$(git status 2> /dev/null)"
-  bits=""
-
-  if [[ ${git_status} =~ "renamed:" ]]; then
-    bits=">${bits}"
-  fi
-
-  ahead_pattern="Your[[:space:]]branch[[:space:]]is[[:space:]](ahead|behind).*by[[:space:]]([[:digit:]])"
-  if [[ ${git_status} =~ ${ahead_pattern} ]]; then
-    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-      bits="^${BASH_REMATCH[2]}${bits}"
-    else
-      bits="v${BASH_REMATCH[2]}${bits}"
-    fi
-  fi
-
-  if [[ ${git_status} =~ "new file:" ]]; then
-    bits="+${bits}"
-  fi
-
-  if [[ ${git_status} =~ "deleted:" ]]; then
-    bits="-${bits}"
-  fi
-
-  if [[ ${git_status} =~ "modified:" ]]; then
-    bits="~${bits}"
-  fi
-
-  if [[ ${git_status} =~ "Untracked files" ]]; then
-    bits="?${bits}"
-  fi
-  if [ ! "${bits}" == "" ]; then
-    echo " ${bits}"
-  else
-    echo ""
-  fi
-}
-
 # typing is hard
 alias ls="ls -hsCFlGp"
 alias untar="tar -xvzf"
@@ -117,28 +59,10 @@ alias celar="clear"
 alias claer="clear"
 alias c="clear"
 
-# Construct a prompt string
-make_prompt () {
-  # Show current user and host. Red if root, else green
-  if [[ $EUID == 0 ]]; then
-    PS1="\[$red\]\H\[$nocol\]"
-  else
-    PS1="\[$green\]\u@\H\[$nocol\]"
-  fi
-
-  # Show current directory
-  PS1+=":\[$yellow\]\w\[$nocol\]"
-
-  # Show git status of current directory.
-  PS1+=" $(git_status)"
-
-  # Put input on a new line
-  PS1+=" \n \[${blue}\]⚡ \[${nocol}\] "
-}
-
-PROMPT_COMMAND='make_prompt'
-
 # Friendly bovine greeting
 fortune -s | cowsay
+
+# Use Powerline - https://github.com/riobard/bash-powerline
+source ~/.bash-powerline.sh
 
 source ~/scripts/pathadd ~/scripts
