@@ -91,7 +91,6 @@ alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
 alias art="php artisan"
 alias lolinit="lolcommits --enable --delay=2 --fork"
-alias c="clear"
 
 # Git shortcuts
 alias gits="git status"
@@ -111,6 +110,7 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 # Because I can't type
 alias celar="clear"
 alias claer="clear"
+alias c="clear"
 
 # Construct a prompt string
 make_prompt () {
