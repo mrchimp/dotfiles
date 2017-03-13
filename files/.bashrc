@@ -98,9 +98,13 @@ alias gita="git add"
 alias gitc="git commit"
 alias gitd="git diff"
 alias gitb="git branch"
-alias gpush="git push origin master"
-alias gpull="git pull origin master"
+alias pushmaster="git push origin master"
+alias pullmaster="git pull origin master"
+alias pushdev="git push origin dev"
+alias pulldev="git pull origin dev"
 alias ggraph="git log --graph --decorate --pretty=oneline"
+alias dev="git checkout dev"
+alias master="git checkout master"
 
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
