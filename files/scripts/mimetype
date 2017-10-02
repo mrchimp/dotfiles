@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Show the mimetype of a file
+file --mime-type -b "$1"
+
