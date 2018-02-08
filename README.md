@@ -5,18 +5,18 @@ MrChimp's Dotfiles
  * Bash
  * Tmux
 
-## What does it do? ##
+## What does it do?
 
 This is my personal setup so you probably dont want to just clone and use it. There are a lot of comments though so it should be easy for others to reuse.
 
-__Bash__
+### Bash
 
 * Install [bash-powerline](https://github.com/riobard/bash-powerline)
 * Add a command (dcs) to quickly copy a file to a remote server and copy a public URL to the clipboard (this is set to work with my personal site - you can easily customise this to work with your own server).
 * Add a bunch of alias commands. (Again, some of these are personal).
 * Get a friendly bovine greeting when opening a terminal.
 
-__Vim__
+### Vim
 
 * Adds [Vundle](https://github.com/VundleVim/Vundle.vim) for plugin management and installs some plugins by default (see _vimrc for details).
 * Add a whole bunch of colorschemes and enable better colour settings and dark background
@@ -27,7 +27,7 @@ __Vim__
 * Tag list - requires [vim-taglist](http://vim-taglist.sourceforge.net) and [Ctags](http://ctags.sourceforge.net/)
 * [NERDTree file browser](https://github.com/scrooloose/nerdtree)
 
-__Tmux__
+### Tmux
 
 * Use solarized color scheme
 * Enable mouse
@@ -62,3 +62,6 @@ Once you've run setup.sh you can delete the code, if you like.
 
     rm -rf dotfiles
 
+## Setup Notes ##
+
+To fix Nautilus on i3: `gsettings set org.gnome.desktop.background show-desktop-icons false`
