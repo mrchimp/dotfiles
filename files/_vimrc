@@ -15,6 +15,7 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'genoma/vim-less'
 Plugin 'mattn/emmet-vim'
+Plugin 'chrisbra/Colorizer'
 
 " Colorschemes
 Plugin 'zsoltf/vim-maui'
