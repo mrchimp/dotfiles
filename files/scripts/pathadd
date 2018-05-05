@@ -3,10 +3,7 @@
 # Add a path to the path if it doesn't exist
 
 if [ -d "$1" ] && [[ ":$PATH:" != *":$1:" ]]; then
-  echo "Adding path: $1"
   PATH="${PATH:+"$PATH:"}$1"
   export PATH
-else
-  echo "Path already exists."
 fi
 

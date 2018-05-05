@@ -59,9 +59,6 @@ alias celar="clear"
 alias claer="clear"
 alias c="clear"
 
-# Friendly bovine greeting
-fortune -s | cowsay
-
 # Use Powerline - https://github.com/riobard/bash-powerline
 source ~/.bash-powerline.sh
 
