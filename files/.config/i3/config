@@ -53,21 +53,21 @@ client.background       #f8f8f0
 bar {
     #status_command i3status
     status_command SCRIPT_DIR=~/blocklets i3blocks
-    #tray_output primary
-    #separator_symbol " • "
+    tray_output primary
+    separator_symbol "•"
     
-    #colors {
-    #    background #1b1b1c
-    #    statusline #bababa
-    #    separator #3b3c3e
+    colors {
+        background #1b1b1c
+        statusline #bababa
+        separator #3b3c3e
 
         # colorclass       border  bg      text
-    #    focused_workspace  #1b1b1c #1b1b1c #68c244
-    #    active_workspace   #3b3c3e #3b3c3e #f8f8f0
-    #    inactive_workspace #1b1b1c #1b1b1c #888888
-    #    urgent_workspace   #2f343a #e8341c #f8f8f0
-    #    binding_mode       #2f343a #e8341c #f8f8f0
-    #}
+        focused_workspace  #1b1b1c #1b1b1c #68c244
+        active_workspace   #3b3c3e #3b3c3e #f8f8f0
+        inactive_workspace #1b1b1c #1b1b1c #888888
+        urgent_workspace   #2f343a #e8341c #f8f8f0
+        binding_mode       #2f343a #e8341c #f8f8f0
+    }
 }
 
 # Before i3 v4.8, we used to recommend this one as the default:
