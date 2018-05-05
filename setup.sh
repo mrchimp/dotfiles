@@ -47,8 +47,19 @@ if hash i3-msg 2>/dev/null; then
   echo "Installing nitrogen and i3blocks..."
   sudo apt install nitrogen i3blocks
 
+  echo "Setting up i3blocks volume"
+  if cd ~/blocklets; then
+    git pull
+    cd -
+  else
+    git clone https://github.com/vivien/i3blocks-contrib.git ~/blocklets
+  fi
+
   echo "  → .config/i3/config"
   cp -r ./files/.config/i3/config ${DEST}/.config/i3/config
+
+  echo "  → .i3blocks.conf"
+  cp ./files/.i3blocks.conf ${DEST}/.i3blocks.conf
 
   echo "Reloading i3 config..."
   i3-msg -q reload
