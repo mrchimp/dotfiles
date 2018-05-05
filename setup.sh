@@ -1,8 +1,12 @@
+#!/usr/bin/env bash
 
 DEST=${1:-~}
 VUNDLE=~/.vim/bundle/Vundle.vim
 
 echo "Copying to $DEST"
+
+echo "  → .config/i3/config"
+cp -r ./files/.config/i3/config ${DEST}/.config/i3/config
 
 echo "  → .ackrc"
 cp -r ./files/.ackrc $DEST
@@ -28,9 +32,6 @@ cp -r ./files/scripts $DEST
 echo "  → cheatsheets"
 cp -r ./files/cheatsheets $DEST
 
-echo "Adding ~/scripts/pathadd to \$PATH"
-source ~/scripts/pathadd ~/scripts
-
 echo "Installing bash-powerline - https://github.com/riobard/bash-powerline"
 curl -s https://raw.githubusercontent.com/riobard/bash-powerline/master/bash-powerline.sh > ~/.bash-powerline.sh
 
@@ -44,11 +45,20 @@ else
 fi
 echo -e "\033[33mTo install Vim plugins run :PluginInstall inside Vim\033[0m"
 
-if type apt-get 2>/dev/null; then
+if hash apt 2>/dev/null; then
   echo "Installing fortune and cowsay"
-  sudo apt-get install fortune cowsay
+  sudo apt -qq install fortune cowsay
 else
-  echo -e "\033[31mApt-get not installed, you'll need to manually install fortune and cowsay or accept that you'll have errors and no friendly bovine greetings.\033[0m"
+  echo -e "\033[31mApt not installed, you'll need to manually install fortune and cowsay or accept that you'll have errors and no friendly bovine greetings.\033[0m"
+fi
+
+# Do i3 specific setup
+if hash i3-msg 2>/dev/null; then
+  echo "Reloading i3 config..."
+  i3-msg -q reload
+  i3-msg -q restart
+  echo "Installing nitrogen..."
+  sudo apt install nitrogen
 fi
 
 echo -e "\033[32mAll done!\033[0m"
