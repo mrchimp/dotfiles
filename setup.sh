@@ -5,9 +5,6 @@ VUNDLE=~/.vim/bundle/Vundle.vim
 
 echo "Copying to $DEST"
 
-echo "  → .config/i3/config"
-cp -r ./files/.config/i3/config ${DEST}/.config/i3/config
-
 echo "  → .ackrc"
 cp -r ./files/.ackrc $DEST
 
@@ -54,11 +51,15 @@ fi
 
 # Do i3 specific setup
 if hash i3-msg 2>/dev/null; then
+  echo "Installing nitrogen and i3blocks..."
+  sudo apt install nitrogen i3blocks
+
+  echo "  → .config/i3/config"
+  cp -r ./files/.config/i3/config ${DEST}/.config/i3/config
+
   echo "Reloading i3 config..."
   i3-msg -q reload
   i3-msg -q restart
-  echo "Installing nitrogen..."
-  sudo apt install nitrogen
 fi
 
 echo -e "\033[32mAll done!\033[0m"
