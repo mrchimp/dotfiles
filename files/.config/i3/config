@@ -201,5 +201,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Restore background using Nitrogen
-exec --nostartup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
+# Enable compton
+exec --no-startup-id compton --config ~/.config/compton.conf -b

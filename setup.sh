@@ -42,10 +42,10 @@ else
 fi
 echo -e "\033[33mTo install Vim plugins run :PluginInstall inside Vim\033[0m"
 
-# Do i3 specific setup
+# Do i3 specific setup id i3 is being used
 if hash i3-msg 2>/dev/null; then
   echo "Installing nitrogen and i3blocks..."
-  sudo apt install nitrogen i3blocks
+  sudo apt install nitrogen i3blocks compton
 
   echo "Setting up i3blocks volume"
   if cd ~/blocklets; then
@@ -58,12 +58,23 @@ if hash i3-msg 2>/dev/null; then
   echo "  → .config/i3/config"
   cp -r ./files/.config/i3/config ${DEST}/.config/i3/config
 
+  echo "  → .config/compton.conf"
+  cp -r ./files/.config/compton.conf ${DEST}/.config/compton.conf
+  
+  echo "  → .config/redshift.conf"
+  cp -r ./files/.config/redshift.conf ${DEST}/.config/redshift.conf
+
   echo "  → .i3blocks.conf"
   cp ./files/.i3blocks.conf ${DEST}/.i3blocks.conf
 
   echo "Reloading i3 config..."
   i3-msg -q reload
   i3-msg -q restart
+
+  if hash redshift-gtk 2>/dev/null; then
+    killall redshift
+    redshift-gtk &> /dev/null &
+  fi
 fi
 
 echo -e "\033[32mAll done!\033[0m"
