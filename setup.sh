@@ -26,6 +26,9 @@ cp -r ./files/.tmux.conf $DEST
 echo "  → scripts"
 cp -r ./files/scripts $DEST
 
+echo "  → bash"
+cp -r ./files/bash $DEST
+
 echo "  → cheatsheets"
 cp -r ./files/cheatsheets $DEST
 
@@ -60,7 +63,7 @@ if hash i3-msg 2>/dev/null; then
 
   echo "  → .config/compton.conf"
   cp -r ./files/.config/compton.conf ${DEST}/.config/compton.conf
-  
+
   echo "  → .config/redshift.conf"
   cp -r ./files/.config/redshift.conf ${DEST}/.config/redshift.conf
 
