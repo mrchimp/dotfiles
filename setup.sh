@@ -32,6 +32,12 @@ cp -r ./files/bash $DEST
 echo "  → cheatsheets"
 cp -r ./files/cheatsheets $DEST
 
+if [ ! -f $DEST/aliases.sh ]; then
+  echo "  → aliases"
+  cp ./files/aliases.sh $DEST/aliases.sh
+fi
+
+
 echo "Installing bash-powerline - https://github.com/riobard/bash-powerline"
 curl -s https://raw.githubusercontent.com/riobard/bash-powerline/master/bash-powerline.sh > ~/.bash-powerline.sh
 

@@ -23,3 +23,4 @@ source ~/bash/aliases.sh
 source ~/.bash-powerline.sh
 
 source ~/scripts/pathadd ~/scripts
+source ~/aliases.sh
