@@ -46,8 +46,8 @@ Press CTRL+a and then...
 
 ## Panes ##
 
-* Split Horizontally `-`
-* Split Vertically `|`
+* Split Horizontally `"`
+* Split Vertically `%`
 * Pane to Window `!`
 * Toggle Fullscreen `z`
 * Reorganise `SPACE`
