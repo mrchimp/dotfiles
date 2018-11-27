@@ -4,8 +4,8 @@ export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 
 # Save ALL the history
-export HISTSIZE=-1
-export HISTFILESIZE=-1
+export HISTSIZE="INFINITE"
+export HISTFILESIZE="INFINITE"
 
 unamestr=`uname`
 
