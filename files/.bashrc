@@ -3,6 +3,10 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 
+# Save ALL the history
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+
 unamestr=`uname`
 
 # Set up some colours
