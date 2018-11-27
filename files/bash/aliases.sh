@@ -2,7 +2,6 @@
 # typing is hard
 alias ls="ls -hsCFlGp"
 alias untar="tar -xvzf"
-alias dcs="ssh mrchimp@deviouschimp.co.uk"
 alias apachelog="tail -f /usr/local/apache/logs/error_log"
 alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
@@ -10,6 +9,9 @@ alias tmux="tmux -2"
 alias art="php artisan"
 alias lolinit="lolcommits --enable --delay=2 --fork"
 alias todo="ack @todo"
+
+# Lists the most commonly used commands from your bash history
+alias whatamidoing="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
 
 # Git shortcuts
 alias gits="git status"
