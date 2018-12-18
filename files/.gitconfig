@@ -1,0 +1,5 @@
+[alias]
+  uncommit = reset --soft HEAD^
+  unstage = reset
+  staged = diff --cached
+

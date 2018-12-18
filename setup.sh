@@ -14,6 +14,9 @@ cp -r ./files/.bash_prompt $DEST
 echo "  → .bashrc"
 cp -r ./files/.bashrc $DEST
 
+echo "  → .gitconfig"
+cp -r ./files/.gitconfig $DEST
+
 echo "  → _vimrc"
 cp -r ./files/_vimrc $DEST
 
