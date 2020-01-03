@@ -26,6 +26,9 @@ cp -r ./files/.vim $DEST
 echo "  → .tmux.conf"
 cp -r ./files/.tmux.conf $DEST
 
+echo "  → .zshrc"
+cp -r ./files/.zshrc $DEST
+
 echo "  → scripts"
 cp -r ./files/scripts $DEST
 
