@@ -121,3 +121,8 @@ export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$
 unsetopt share_history
 
 # source ~/.deployer_completion
+
+
+function homestead() {
+  ( cd ~/Homestead && vagrant $* )
+}
