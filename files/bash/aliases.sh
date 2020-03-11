@@ -6,7 +6,7 @@ alias apachelog="tail -f /usr/local/apache/logs/error_log"
 alias modfiles="find . -type f -exec chmod 644 {} \;"
 alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
-alias art="php artisan"
+alias art="enso artisan"
 alias lolinit="lolcommits --enable --delay=2 --fork"
 alias todo="ack @todo"
 
