@@ -17,6 +17,10 @@ export HISTSIZE=
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
 export HISTFILE=~/.bash_eternal_history
 
+# Set default editor
+export EDITOR='vim'
+export VISUAL='vim'
+
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
