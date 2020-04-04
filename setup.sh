@@ -3,6 +3,13 @@
 DEST=${1:-~}
 VUNDLE=~/.vim/bundle/Vundle.vim
 
+echo "Installing software. You may be asked for your password"
+echo " - vim, zsh, ack"
+sudo apt-get install -yq vim zsh ack
+
+echo " - oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 echo "Copying to $DEST"
 
 echo "  → .ackrc"
