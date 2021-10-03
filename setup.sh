@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 DEST=${1:-~}
-VUNDLE=~/.vim/bundle/Vundle.vim
 
 echo "Copying to $DEST"
 
@@ -49,16 +48,6 @@ fi
 
 echo "Installing bash-powerline - https://github.com/riobard/bash-powerline"
 curl -s https://raw.githubusercontent.com/riobard/bash-powerline/master/bash-powerline.sh > ~/.bash-powerline.sh
-
-echo "Installing Vundle - https://github.com/VundleVim/Vundle.vim"
-if [ -d "$VUNDLE" ]; then
-  cd "$VUNDLE"
-  git pull origin master &> /dev/null
-  cd - > /dev/null
-else
-  git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE" &> /dev/null
-fi
-echo -e "\033[33mTo install Vim plugins run :PluginInstall inside Vim\033[0m"
 
 # Do i3 specific setup id i3 is being used
 if hash i3-msg 2>/dev/null; then
