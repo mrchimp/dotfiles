@@ -1,6 +1,6 @@
 
 # typing is hard
-alias ls="ls -hsCFlGp"
+alias ls="ls -hsCFlGp --color=auto"
 alias untar="tar -xvzf"
 alias apachelog="tail -f /usr/local/apache/logs/error_log"
 alias modfiles="find . -type f -exec chmod 644 {} \;"
