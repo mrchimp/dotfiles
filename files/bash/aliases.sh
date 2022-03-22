@@ -2,11 +2,7 @@
 # typing is hard
 alias ls="ls -hsCFlGp --color=auto"
 alias untar="tar -xvzf"
-alias apachelog="tail -f /usr/local/apache/logs/error_log"
-alias modfiles="find . -type f -exec chmod 644 {} \;"
-alias moddirs="find . -type d -exec chmod 755 {} \;"
 alias tmux="tmux -2"
-alias art="enso artisan"
 alias lolinit="lolcommits --enable --delay=2 --fork"
 alias todo="ack @todo"
 
@@ -20,9 +16,12 @@ alias gitc="git commit"
 alias gitd="git diff"
 alias gitb="git branch"
 alias pushmaster="git push origin master"
+alias pushmain="git push origin main"
 alias pullmaster="git pull origin master"
+alias pullmain="git pull origin main"
 alias ggraph="git log --graph --decorate --pretty=oneline"
 alias master="git checkout master"
+alias main="git checkout main"
 
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
