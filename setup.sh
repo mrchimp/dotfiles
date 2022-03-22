@@ -3,8 +3,8 @@
 DEST=${1:-~}
 
 echo "Installing software"
-echo -n "→ vim, zsh, ack ... "
-sudo apt-get -yqq install vim zsh ack
+echo -n "→ vim, zsh, ack, mdp ... "
+sudo apt-get -yqq install vim zsh ack mdp
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ oh-my-zsh ... "

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-mdr ~/cheatsheets/${1}.md
+mdp --nofade --nocodebg ~/cheatsheets/${1}.md
 
