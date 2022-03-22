@@ -2,4 +2,3 @@
 
 # Commit everything.
 git add -A && git commit -m "$*"
-
