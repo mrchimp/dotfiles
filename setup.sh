@@ -4,7 +4,7 @@ DEST=${1:-~}
 
 echo "Installing software"
 echo -n "→ vim, zsh, ack, mdp ... "
-sudo apt-get -yqq install vim zsh ack mdp
+sudo apt-get -yqq install vim zsh ack mdp dconf-cli uuid-runtime
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ oh-my-zsh ... "
@@ -33,6 +33,10 @@ echo -e "\e[32mok\e[0m"
 
 echo -n "→ .bashrc ... "
 cp -r ./files/.bashrc $DEST
+echo -e "\e[32mok\e[0m"
+
+echo -n "→ .config/regolith/i3/config ... "
+cp ./files/.config/regolith/i3/config $DEST/.config/regolith/i3/config
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ .zshrc ... "
@@ -76,3 +80,16 @@ if [ ! -f $DEST/aliases.sh ]; then
   cp ./files/aliases.sh $DEST/aliases.sh
   echo -e "\e[32mok\e[0m"
 fi
+
+echo "→ Installing goch for terminal colours ... "
+git clone --quiet https://github.com/Gogh-Co/Gogh.git gogh
+cd gogh/themes
+
+# necessary on ubuntu
+export TERMINAL=gnome-terminal
+
+# install themes
+./darkside.sh
+cd ../..
+rm -rf ./gogh
+echo -e "\e[32mok\e[0m"
