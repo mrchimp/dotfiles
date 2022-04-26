@@ -3,3 +3,6 @@
   unstage = reset
   staged = diff --cached
   ctags = "!.git/hooks/ctags"
+[user]
+  name = Jake Gully
+  email = chimpytk@gmail.com
