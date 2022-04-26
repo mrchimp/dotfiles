@@ -6,3 +6,5 @@
 [user]
   name = Jake Gully
   email = chimpytk@gmail.com
+[pull]
+  rebase = true
