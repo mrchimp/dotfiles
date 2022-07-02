@@ -5,6 +5,7 @@ alias untar="tar -xvzf"
 alias tmux="tmux -2"
 alias lolinit="lolcommits --enable --delay=2 --fork"
 alias todo="ack @todo"
+alias dirsize="du -h --max-depth=1 | sort -hr"
 
 # Lists the most commonly used commands from your bash history
 alias whatamidoing="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
