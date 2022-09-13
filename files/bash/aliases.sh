@@ -23,6 +23,10 @@ alias pullmain="git pull origin main"
 alias ggraph="git log --graph --decorate --pretty=oneline"
 alias master="git checkout master"
 alias main="git checkout main"
+alias gituncommit="git reset --soft HEAD^"
+alias gitunstage="git reset"
+alias gitstaged="git diff --cached"
+alias gitctags="git !.git/hooks/ctags"
 
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'

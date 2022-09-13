@@ -43,10 +43,6 @@ echo -n "→ .zshrc ... "
 cp -r ./files/.zshrc $DEST
 echo -e "\e[32mok\e[0m"
 
-echo -n "→ .gitconfig ... "
-cp -r ./files/.gitconfig $DEST
-echo -e "\e[32mok\e[0m"
-
 echo -n "→ _vimrc ... "
 cp -r ./files/_vimrc $DEST
 echo -e "\e[32mok\e[0m"
