@@ -4,7 +4,7 @@ DEST=${1:-~}
 
 echo "Installing software"
 echo -n "→ vim, zsh, ack, mdp ... "
-sudo apt-get -yqq install vim zsh ack mdp dconf-cli uuid-runtime
+sudo apt-get -yqq install vim zsh ack mdp dconf-cli uuid-runtime dunst
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ oh-my-zsh ... "
@@ -69,6 +69,11 @@ echo -e "\e[32mok\e[0m"
 
 echo -n "→ bash ... "
 cp -r ./files/bash $DEST
+echo -e "\e[32mok\e[0m"
+
+echo -n "→ dunst ..."
+mkdir -p ~/.config/dunst
+cp ./files/.config/dunst/config ~/.config/dunst/dunstrc
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ cheatsheets ... "

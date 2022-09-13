@@ -437,9 +437,10 @@ set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/thunar
 bindsym $mod+$i3-wm.binding.files exec $i3-wm.program.files
 
 ## Launch // Notification Viewer // <> n ##
-set_from_resource $i3-wm.binding.notification_ui i3-wm.binding.notification_ui n
-set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
-bindsym $mod+$i3-wm.binding.notification_ui exec $i3-wm.program.notification_ui
+# Commented out - we'll use Dunst instead
+#set_from_resource $i3-wm.binding.notification_ui i3-wm.binding.notification_ui n
+#set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
+#bindsym $mod+$i3-wm.binding.notification_ui exec $i3-wm.program.notification_ui
 
 ###############################################################################
 # Workspace Management
@@ -651,8 +652,11 @@ set_from_resource $i3-wm.program.compositor i3-wm.program.compositor /usr/share/
 exec_always --no-startup-id $i3-wm.program.compositor
 
 # Start Rofication for notifications
-set_from_resource $i3-wm.program.notifications i3-wm.program.notifications /usr/bin/rofication-daemon
-exec --no-startup-id $i3-wm.program.notifications
+#set_from_resource $i3-wm.program.notifications i3-wm.program.notifications /usr/bin/rofication-daemon
+#exec --no-startup-id $i3-wm.program.notifications
+# We'll use Dunst instead. Presumably this should be set in
+# $i3-wm.program.notifications but I don't know where that is right now
+exec_always -no-startup-id dunst
 
 # Launch first time user experience script
 set_from_resource $i3-wm.program.ftui i3-wm.program.ftui /usr/bin/regolith-ftue
