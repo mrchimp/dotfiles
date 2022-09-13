@@ -81,7 +81,7 @@ if [ ! -f $DEST/aliases.sh ]; then
   echo -e "\e[32mok\e[0m"
 fi
 
-echo "→ Installing goch for terminal colours ... "
+echo "→ Installing gogh for terminal colours ... "
 git clone --quiet https://github.com/Gogh-Co/Gogh.git gogh
 cd gogh/themes
 
@@ -91,5 +91,8 @@ export TERMINAL=gnome-terminal
 # install themes
 ./darkside.sh
 cd ../..
-rm -rf ./gogh
 echo -e "\e[32mok\e[0m"
+
+echo "→ Testing notifications..."
+killall dunst
+notify-send "This is a notification. Hi!"
