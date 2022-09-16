@@ -3,8 +3,8 @@
 DEST=${1:-~}
 
 echo "Installing software"
-echo -n "→ vim, zsh, ack, mdp ... "
-sudo apt-get -yqq install vim zsh ack mdp dconf-cli uuid-runtime dunst
+echo -n "→ vim, zsh, ack, mdp, sushi ... "
+sudo apt-get -yqq install vim zsh ack mdp gnome-sushi dconf-cli uuid-runtime dunst
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ oh-my-zsh ... "
