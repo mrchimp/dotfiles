@@ -5,7 +5,7 @@
     # Display notifications on monitor with mouse focus
     follow = mouse
     # Set {width}x{height} and {x_pos}+{y_pos}
-    geometry = "300x30-5+60"
+    geometry = "300x30-60+60"
     # Show number of hidden notifications
     indicate_hidden = yes
     # Shrink window if smaller than width
@@ -21,9 +21,9 @@
     # Horizontal padding
     horizontal_padding = 8
     # Width of frame around window
-    frame_width = 1
+    frame_width = 2
     # Color of frame around window
-    frame_color = "#4287f5"
+    frame_color = "#1cc3e8"
     # Sort messages by urgency
     sort = yes
     # Idle seconds
@@ -100,11 +100,11 @@
     ### Mouse ###
 
     # Left click
-    mouse_left_click = close_current
+    mouse_left_click = do_action
     # Middle click
-    mouse_middle_click = do_action
+    mouse_middle_click = close_current
     # Right click
-    mouse_right_click = do_action
+    mouse_right_click = close_current
 
 [shortcuts]
 
@@ -116,13 +116,13 @@
 [urgency_normal]
 
     # Normal urgency notifications
-    background = "#202632"
+    background = "#222324"
     foreground = "#ffffff"
-    timeout = 5
+    timeout = 7
 
 [urgency_critical]
 
     # High urgency notifications
     background = "#ffffff"
-    foreground = "#db0101"
+    foreground = "#e8341c"
     timeout = 0
