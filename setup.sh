@@ -16,10 +16,6 @@ else
   echo -e "\e[33mSkipped. Already installed.\e[0m"
 fi
 
-echo -n "→ bash-powerline ... "
-curl -s https://raw.githubusercontent.com/riobard/bash-powerline/master/bash-powerline.sh > ~/.bash-powerline.sh
-echo -e "\e[32mok\e[0m"
-
 echo ""
 echo "Copying files to $DEST"
 
