@@ -1,64 +1,71 @@
-# Tmux #
+## Tmux Sessions ##
+
+`tmux ls`                            List Sessions
+`tmux -s <session>`                  New Session
+`tmux -t <session>`                  Attach Session
+`tmux -t <session>`                  Kill Session
+`tmux rename-session -t <old> <new>` Rename Session
+`tmux # <0-9>`                       Goto Session
+
+---
+
+# Once In Tmux #
 
 Press CTRL+a and then...
 
-
-## Tmux Commands ##
-
-* List `ls`
-* New `-s <session>`
-* Attach att `-t <session>`
-* Kill kill-session `-t <session>`
-* Rename `rename-session -t <old> <new>`
-* Goto `# <0-9>`
-
+---
 
 ## Controls ##
 
-* Choose `w <name>`
-* List `=`
-* Buffer `PAGEUP/DOWN`
-* Command `: <command>`
-* Paste `p`
-* Copy Mode `ESC`
--Move `hjkl`
--Start `v`
--Copy `y`
+`w <name>`    Choose
+`=`           List
+`PAGEUP/DOWN` Buffer
+`: <command>` Command
+`p`           Paste
+`ESC`         Copy Mode
+`hjkl`        Move
+`v`           Start
+`y`           Copy
+
+---
 
 ## Sessions ##
 
-* New `:new [-s <name>]`
-* Rename `$`
-* List `s`
-* Next `(`
-* Previous `)`
-* Dettach (leave tmux) `^a d`
+`:new [-s <name>]` New
+`$`                Rename
+`s`                List
+`(`                Next
+`)`                Previous
+`^a d`             Detach (leave tmux)
+
+---
 
 ## Windows ##
 
-* Create `c`
-* List `w`
-* Rename `, <name>`
-* Last `l`
-* Next `n`
-* Previous `p`
-* Close `&`
+`c`        Create
+`w`        List
+`, <name>` Rename
+`l`        Last
+`n`        Next
+`p`        Previous
+`&`        Close
+
+---
 
 ## Panes ##
 
-* Split Horizontally `"`
-* Split Vertically `%`
-* Pane to Window `!`
-* Toggle Fullscreen `z`
-* Reorganise `SPACE`
-* Show nums `q`
-* Select `ARROW`
-* Previous `{`
-* Next `}`
-* Switch to other `o`
-* Resize `CTRL+ARROW`
-* Expand `ALT+ARROW`
-* Swap `^o`
-* Last `;`
-* Kill `x`
-
+`"`          Split Horizontally
+`%`          Split Vertically
+`!`          Pane to Window
+`z`          Toggle Fullscreen
+`SPACE`      Reorganise
+`q`          Show nums
+`ARROW`      Select
+`{`          Previous
+`}`          Next
+`o`          Switch to other
+`CTRL+ARROW` Resize
+`ALT+ARROW`  Expand
+`^o`         Swap
+`;`          Last
+`x`          Kill

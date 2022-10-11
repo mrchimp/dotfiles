@@ -11,6 +11,7 @@
 `jshint`    JS linter
 `jscs`      JS code style checker
 
+---
 
 ## Navigation ##
 
@@ -28,6 +29,7 @@
 `gg` Top of file
 `G`  Bottom of file
 
+---
 
 ## Multiple Files ##
 
@@ -36,6 +38,7 @@
 `:bprev` `:bp`  Previous buffer
 `:bd`           Delete buffer (close file)
 
+---
 
 ## Splits ##
 
@@ -50,6 +53,7 @@ Also
 
 `:sp <filename>` - Open a file in a new buffer and split window
 
+---
 
 ## Text Objects ##
 
@@ -59,6 +63,7 @@ Also
 `p` Paragraphs
 `t` Tags
 
+---
 
 ## Motions ##
 
@@ -68,6 +73,7 @@ Also
 `f` Find forward
 `F` Find backward
 
+---
 
 ## Commands ##
 
@@ -81,18 +87,22 @@ Also
 `yy` yank line
 `D`  delete
 
+---
 
 ## Repetition ##
 
 `.`   Repeat last command
 `^/$` Begining end of line
 
+---
 
 ## Macros ##
 ### Record ###
 
 `q{register}` Start recording
 `q`           Stop recording
+
+---
 
 ### Play ###
 
