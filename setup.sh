@@ -82,6 +82,15 @@ if [ ! -f $DEST/aliases.sh ]; then
   echo -e "\e[32mok\e[0m"
 fi
 
+if command -v regolith-look &> /dev/null 
+then
+  echo "→ installing regolith look ... "
+  sudo cp ./regolith-look-mrchimp/* /usr/share/regolith-look/mrchimp/
+  regolith-look refresh
+  echo -e "\e[32mok\e[0m"
+  sleep 2
+fi
+
 echo "→ Installing gogh for terminal colours ... "
 git clone --quiet https://github.com/Gogh-Co/Gogh.git gogh
 cd gogh/themes
@@ -95,5 +104,5 @@ cd ../..
 echo -e "\e[32mok\e[0m"
 
 echo "→ Testing notifications..."
-killall dunst
+killall dunst &> /dev/null
 notify-send "This is a notification. Hi!"
