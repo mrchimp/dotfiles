@@ -9,12 +9,29 @@ MrChimp's Dotfiles
 
 This is my personal setup so you probably dont want to just clone and use it. There are a lot of comments though so it should be easy for others to reuse.
 
-### Bash
+## Extra Software
 
-* Install [bash-powerline](https://github.com/riobard/bash-powerline)
-* Add a command (dcs) to quickly copy a file to a remote server and copy a public URL to the clipboard (this is set to work with my personal site - you can easily customise this to work with your own server).
-* Add a bunch of alias commands. (Again, some of these are personal).
-* Get a friendly bovine greeting when opening a terminal.
+Installs a bunch of extra software that I always use.
+
+* vim (editor)
+* zsh (shell)
+* ack (search rool)
+* mdp (used for cheatsheets)
+* sushi (file previewer)
+* dunst (notifications)
+
+### Window Manager
+
+I use [Regolith Linux](https://regolith-desktop.com/). So set up will:
+
+* Install a Regolith "look" in order to style it all nicely
+
+### Zsh
+
+* Installs oh-my-zsh
+* Adds a bunch of alias commands. 
+* Installs a `~/aliases.sh` file for per-machine aliases.
+* Use [Gogh](https://github.com/Gogh-Co/Gogh.git) to colour the terminal nicely. 
 
 ### Vim
 
@@ -50,18 +67,14 @@ Get the code
 
 Install to `~` by default.
 
-    sh setup.sh
+    ./setup.sh
 
 Alternatively, install to another directory
 
-    sh setup.sh /home/foo
+    ./setup.sh /home/foo
 
 ## Tidying up ##
 
 Once you've run setup.sh you can delete the code, if you like.
 
     rm -rf dotfiles
-
-## Setup Notes ##
-
-To fix Nautilus on i3: `gsettings set org.gnome.desktop.background show-desktop-icons false`
