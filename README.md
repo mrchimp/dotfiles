@@ -29,9 +29,8 @@ I use [Regolith Linux](https://regolith-desktop.com/). So set up will:
 ### Zsh
 
 * Installs oh-my-zsh
-* Adds a bunch of alias commands. 
+* Adds a bunch of alias commands.
 * Installs a `~/aliases.sh` file for per-machine aliases.
-* Use [Gogh](https://github.com/Gogh-Co/Gogh.git) to colour the terminal nicely. 
 
 ### Vim
 
@@ -39,7 +38,6 @@ I use [Regolith Linux](https://regolith-desktop.com/). So set up will:
 * Add a whole bunch of colorschemes and enable better colour settings and dark background
 * Tabs 2 spaces wide (except in Python files)
 * Use line numbers, autoindent, expandtab, fieltype detection, ruler
-* Use [Gohu font](http://font.gohu.eu) by default (not included - )
 * Shortcuts for colourscheme browsing, code folding, show directory in explorer (windows only)
 * Tag list - requires [vim-taglist](http://vim-taglist.sourceforge.net) and [Ctags](http://ctags.sourceforge.net/)
 * [NERDTree file browser](https://github.com/scrooloose/nerdtree)
