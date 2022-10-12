@@ -81,6 +81,7 @@ fi
 if command -v regolith-look &> /dev/null 
 then
   echo "→ installing regolith look ... "
+  sudo mkdir -p /usr/share/regolith-look/mrchimp
   sudo cp ./regolith-look-mrchimp/* /usr/share/regolith-look/mrchimp/
   regolith-look refresh
   echo -e "\e[32mok\e[0m"
