@@ -85,20 +85,7 @@ then
   sudo cp ./regolith-look-mrchimp/* /usr/share/regolith-look/mrchimp/
   regolith-look refresh
   echo -e "\e[32mok\e[0m"
-  sleep 2
 fi
-
-echo "→ Installing gogh for terminal colours ... "
-git clone --quiet https://github.com/Gogh-Co/Gogh.git gogh
-cd gogh/themes
-
-# necessary on ubuntu
-export TERMINAL=gnome-terminal
-
-# install themes
-./darkside.sh
-cd ../..
-echo -e "\e[32mok\e[0m"
 
 echo "→ Testing notifications..."
 killall dunst &> /dev/null
