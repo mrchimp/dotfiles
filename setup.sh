@@ -78,12 +78,13 @@ if [ ! -f $DEST/aliases.sh ]; then
   echo -e "\e[32mok\e[0m"
 fi
 
-if command -v regolith-look &> /dev/null 
+if command -v regolith-look &> /dev/null
 then
   echo "→ installing regolith look ... "
   sudo mkdir -p /usr/share/regolith-look/mrchimp
   sudo cp ./regolith-look-mrchimp/* /usr/share/regolith-look/mrchimp/
   regolith-look refresh
+  sleep 1
   echo -e "\e[32mok\e[0m"
 fi
 
