@@ -31,10 +31,6 @@ echo -n "→ .bashrc ... "
 cp -r ./files/.bashrc $DEST
 echo -e "\e[32mok\e[0m"
 
-echo -n "→ .config/regolith/i3/config ... "
-cp ./files/.config/regolith/i3/config $DEST/.config/regolith/i3/config
-echo -e "\e[32mok\e[0m"
-
 echo -n "→ .zshrc ... "
 cp -r ./files/.zshrc $DEST
 echo -e "\e[32mok\e[0m"
