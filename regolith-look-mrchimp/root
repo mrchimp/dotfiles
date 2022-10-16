@@ -11,13 +11,13 @@
 regolith.look: mrchimp
 
 ! --------------------------------------------
-! -- Wallpaper 
+! -- Wallpaper
 ! --------------------------------------------
 
 ! -- Specify either a complete file path to an image
 ! -- and (optionally) options how to display the file
 
-regolith.wallpaper.file: 
+regolith.wallpaper.file:
 regolith.wallpaper.options: zoom
 
 !-- *Or* specify a color
@@ -30,7 +30,7 @@ regolith.wallpaper.color.secondary:
 regolith.wallpaper.color.shading.type:
 
 ! --------------------------------------------
-! -- Lockscreen Wallpaper 
+! -- Lockscreen Wallpaper
 ! --------------------------------------------
 
 !-- the following keys can be set to specify the lockscreen background, as above with desktop wallpaper
@@ -38,7 +38,7 @@ regolith.wallpaper.color.shading.type:
 ! -- Specify either a complete file path to an image
 ! -- and (optionally) options how to display the file
 
-regolith.lockscreen.wallpaper.file: 
+regolith.lockscreen.wallpaper.file:
 regolith.lockscreen.wallpaper.options: zoom
 
 !-- *Or* specify a color
@@ -63,7 +63,7 @@ gtk.icon_theme_name: Papirus-Dark
 
 #define gtk_font_name DejaVu Sans Fallback 11
 #define gtk_document_font_name Sans 11
-#define gtk_monospace_font_name Hack 12
+#define gtk_monospace_font_name BitstreamVeraSansMono Nerd Font 12
 
 gtk.font_name: gtk_font_name
 gtk.document_font_name: gtk_document_font_name
@@ -83,7 +83,7 @@ gtk.monospace_font_name: gtk_monospace_font_name
 #define color_base0    #f8f8f0
 #define color_base3    #FFFFFF
 
-! -- Palette 
+! -- Palette
 #define color_yellow   #f2d42c
 #define color_orange   #f08d24
 #define color_red      #e8341c
@@ -107,7 +107,7 @@ gtk.monospace_font_name: gtk_monospace_font_name
 #include "/usr/share/regolith-look/mrchimp/gnome-terminal"
 
 ! --------------------------------------------
-! -- Loader Path - Path to script responsible 
+! -- Loader Path - Path to script responsible
 ! -- for configuring UI from Xres values
 ! -- NOTE: The following script path can be changed to support alternative look configurations
 ! --------------------------------------------
