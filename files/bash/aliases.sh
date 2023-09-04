@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # typing is hard
 alias ls="ls -hsCFlGp --color=auto"
@@ -8,7 +9,9 @@ alias todo="ack @todo"
 alias dirsize="du -h --max-depth=1 | sort -hr"
 
 # Lists the most commonly used commands from your bash history
-alias whatamidoing="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
+whatamidoing () {
+    history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10
+}
 
 # Git shortcuts
 alias gits="git status"
@@ -28,11 +31,18 @@ alias gitunstage="git reset"
 alias gitstaged="git diff --cached"
 alias gitctags="git !.git/hooks/ctags"
 
+# Homestead shortcuts
+homestead () {
+    (cd ~/Homestead && vagrant "$1")
+}
+alias hu="homestead up"
+alias he="homestead edit"
+alias hs="homestead ssh"
+alias hr="homestead up --reprovision"
+alias hp="homestead provision"
+
 # Sudo previous command
 alias please='sudo $(history -p \!\!)'
-
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 # Because I can't type
 alias celar="clear"
