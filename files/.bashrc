@@ -3,9 +3,6 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 
-# Use Powerline - https://github.com/riobard/bash-powerline
-source ~/.bash-powerline.sh
-
 # Eternal bash history.
 # https://github.com/fotinakis/bashrc/blob/master/init.sh#L47
 # ---------------------
