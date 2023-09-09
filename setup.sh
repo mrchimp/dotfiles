@@ -102,7 +102,7 @@ if [[ -d ~/Homestead ]]; then
 else
     echo "→ Installing Homestead..."
     git clone https://github.com/laravel/homestead.git ~/Homestead
-    cd ~/Homestead || echo 'Homestead directory does not exist.' && exit
+    cd ~/Homestead || (echo 'Homestead directory does not exist.' && exit)
     git checkout release
     bash init.sh
     cd - || return
