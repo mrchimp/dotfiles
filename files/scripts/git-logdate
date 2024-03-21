@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#read -p "Enter date (YYYY-MM-DD): " date
+git log --all --since="$1 0:00" --until="$1 23:59" --pretty=format:"%h %an %s" --pretty='format:%C(yellow)%h %G? %ad%Cred%d %Creset%s%C(cyan) [%cn]' --decorate --author "$(git config user.name)"
