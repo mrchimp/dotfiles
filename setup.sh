@@ -27,6 +27,10 @@ else
     echo -e "\e[33mAlready installed.\e[0m"
 fi
 
+echo -n "→ oh-my-zsh-theme ..."
+cp ./files/oh-my-zsh/jake.zsh-theme ~/.oh-my-zsh/custom/themes/jake.zsh-theme
+echo -e "\e[32mok\e[0m"
+
 echo ""
 echo "Copying files to $DEST"
 
