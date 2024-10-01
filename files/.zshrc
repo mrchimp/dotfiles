@@ -74,6 +74,8 @@ plugins=(
   laravel
   composer
   yarn
+  npm
+  ubuntu
 )
 
 source $ZSH/oh-my-zsh.sh
