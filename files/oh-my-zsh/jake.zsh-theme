@@ -9,7 +9,7 @@ function prompt_char {
 
 PROMPT='%(?, ,%{$fg[red]%}FAIL: $?%{$reset_color%}
 )
-%{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info) %{$fg[red]%}$(yd-cluster-current)%{$reset_color%}
+%{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info) %{$fg[red]%}$(~/scripts/prompt-right-side)%{$reset_color%}
 $(prompt_char) '
 
 RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
