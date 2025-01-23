@@ -76,6 +76,8 @@ plugins=(
   yarn
   npm
   ubuntu
+  colorize
+  dircycle
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -120,6 +122,7 @@ unsetopt share_history
 
 # source ~/.deployer_completion
 
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 function homestead() {
   ( cd ~/Homestead && vagrant $* )
