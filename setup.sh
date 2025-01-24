@@ -39,10 +39,6 @@ echo -n "→ .ackrc ... "
 cp -r ./files/.ackrc "$DEST"
 echo -e "\e[32mok\e[0m"
 
-echo -n "→ .bash_prompt ... "
-cp -r ./files/.bash_prompt "$DEST"
-echo -e "\e[32mok\e[0m"
-
 echo -n "→ .bashrc ... "
 cp -r ./files/.bashrc "$DEST"
 echo -e "\e[32mok\e[0m"
@@ -69,7 +65,9 @@ cp -f ./files/scripts/git-recent "$DEST/scripts/"
 cp -f ./files/scripts/mcd "$DEST/scripts/"
 cp -f ./files/scripts/pathadd "$DEST/scripts/"
 cp -f ./files/scripts/tailtalk "$DEST/scripts/"
+if [ ! -f "$DEST"/scripts/prompt-right-side ]; then
 cp ./files/scripts/prompt-right-side "$DEST/scripts/"
+fi
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ bash ... "

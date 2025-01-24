@@ -73,7 +73,6 @@ plugins=(
   docker
   laravel
   composer
-  yarn
   npm
   ubuntu
   colorize
