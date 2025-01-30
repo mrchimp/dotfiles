@@ -54,6 +54,13 @@ echo -e "\e[32mok\e[0m"
 echo -n "→ Zed theme ... "
 mkdir -p "$DEST"/.config/zed/themes
 cp -r ./files/.config/zed/themes/darkside.json "$DEST"/.config/zed/themes
+cp -r ./files/.config/zed/themes/seaside.json "$DEST"/.config/zed/themes
+echo -e "\e[32mok\e[0m"
+
+echo -n "→ Tilix theme ... "
+mkdir -p "$DEST"/.config/tilix/schemes
+cp -r ./files/.config/tilix/schemes/darkside.json "$DEST"/.config/tilix/schemes
+cp -r ./files/.config/tilix/schemes/seashells.json "$DEST"/.config/tilix/schemes
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ scripts ... "
