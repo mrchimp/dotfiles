@@ -16,8 +16,8 @@ sudo apt-get -qq upgrade
 echo -e "\e[32mok\e[0m"
 
 echo "Installing software"
-echo -n "→ git tilix zsh htop nodejs npm virtualbox neovim zsh gh ack mdp gnome-sushi dconf-cli uuid-runtime fonts-firacode ... "
-sudo apt-get -qq install git tilix zsh htop nodejs npm virtualbox neovim zsh gh ack mdp gnome-sushi dconf-cli uuid-runtime fonts-firacode
+echo -n "→ git tilix zsh htop nodejs npm neovim gh ack mdp gnome-sushi dconf-cli uuid-runtime fonts-firacode ... "
+sudo apt-get -qq install git tilix zsh htop nodejs npm neovim gh ack mdp gnome-sushi dconf-cli uuid-runtime fonts-firacode
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ oh-my-zsh ... "
