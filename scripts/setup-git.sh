@@ -17,7 +17,8 @@ then
     git config --global push.autoSetupRemote true
     git config --global push.followTags true
     git config --global fetch.prune true
-    git config --global fetch.pruneTags true
+    # Causes this issue https://stackoverflow.com/questions/58031165/how-to-get-rid-of-would-clobber-existing-tag
+    # git config --global fetch.pruneTags true
     git config --global fetch.all true
     git config --global help.autocorrect prompt
     git config --global commit.verbose true
