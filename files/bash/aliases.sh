@@ -48,3 +48,5 @@ alias please='sudo $(history -p \!\!)'
 alias celar="clear"
 alias claer="clear"
 alias c="clear"
+
+alias cat=batcat

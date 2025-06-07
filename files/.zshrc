@@ -119,10 +119,14 @@ export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$
 
 unsetopt share_history
 
-# source ~/.deployer_completion
-
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 function homestead() {
   ( cd ~/Homestead && vagrant $* )
 }
+
+
+# Fzf Shell Integration
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
