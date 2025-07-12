@@ -1,0 +1,31 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: Open Default Keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
+      "ctrl-shift-enter": ["editor::NewlineAbove", "editor::MoveCursorUp"],
+      "ctrl-enter": ["editor::NewlineBelow", "editor::MoveCursorDown"],
+      "ctrl-`": "workspace::ToggleBottomDock",
+      "ctrl-alt-l": "editor::SplitSelectionIntoLines",
+      "ctrl-shift-d": "editor::DuplicateLineDown",
+
+      "alt-h": "workspace::ActivatePaneLeft",
+      "alt-l": "workspace::ActivatePaneRight",
+      "alt-k": "workspace::ActivatePaneDown",
+      "alt-j": "workspace::ActivatePaneUp"
+    }
+  }
+]

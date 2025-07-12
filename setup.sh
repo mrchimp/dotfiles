@@ -51,10 +51,9 @@ echo -n "→ .tmux.conf ... "
 cp -r ./files/.tmux.conf "$DEST"
 echo -e "\e[32mok\e[0m"
 
-echo -n "→ Zed theme ... "
+echo -n "→ Zed settings ... "
 mkdir -p "$DEST"/.config/zed/themes
-cp -r ./files/.config/zed/themes/darkside.json "$DEST"/.config/zed/themes
-cp -r ./files/.config/zed/themes/seashells.json "$DEST"/.config/zed/themes
+cp -r ./files/.config/zed "$DEST"/.config/
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ Tilix theme ... "
