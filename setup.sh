@@ -6,19 +6,7 @@ echo -n "Making somewhere to store code ... "
 mkdir -p ~/code
 echo -e "\e[32mok\e[0m"
 
-echo -n "Enabling universe repository ... " # Needed for fonts-firacode
-sudo add-apt-repository universe
-echo -e "\e[32mok\e[0m"
-
-echo -n "Updating everything ... "
-sudo apt-get -qq update
-sudo apt-get -qq upgrade
-echo -e "\e[32mok\e[0m"
-
-echo "Installing software"
-echo -n "→ git tilix zsh htop nodejs npm neovim gh ack mdp gnome-sushi dconf-cli uuid-runtime fonts-firacode bat ... "
-sudo apt-get -qq install git tilix zsh htop nodejs npm neovim gh ack mdp gnome-sushi dconf-cli uuid-runtime fonts-firacode bat
-echo -e "\e[32mok\e[0m"
+./scripts/setup-apt.sh
 
 echo -n "→ oh-my-zsh ... "
 if [ -z "$ZSH" ]; then
@@ -52,17 +40,18 @@ cp -r ./files/.tmux.conf "$DEST"
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ Zed settings ... "
-mkdir -p "$DEST"/.config/zed/themes
+mkdir -p "$DEST/.config/zed/themes"
 cp -r ./files/.config/zed "$DEST"/.config/
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ Tilix theme ... "
-mkdir -p "$DEST"/.config/tilix/schemes
+mkdir -p "$DEST/.config/tilix/schemes"
 cp -r ./files/.config/tilix/schemes/darkside.json "$DEST"/.config/tilix/schemes
 cp -r ./files/.config/tilix/schemes/seashells.json "$DEST"/.config/tilix/schemes
 echo -e "\e[32mok\e[0m"
 
 echo -n "→ scripts ... "
+mkdir -p "$DEST/scripts"
 cp -f ./files/scripts/alldone "$DEST/scripts/"
 cp -f ./files/scripts/cheat "$DEST/scripts/"
 cp -f ./files/scripts/cleardns "$DEST/scripts/"
@@ -71,7 +60,7 @@ cp -f ./files/scripts/git-recent "$DEST/scripts/"
 cp -f ./files/scripts/mcd "$DEST/scripts/"
 cp -f ./files/scripts/pathadd "$DEST/scripts/"
 cp -f ./files/scripts/tailtalk "$DEST/scripts/"
-if [ ! -f "$DEST"/scripts/prompt-right-side ]; then
+if [ ! -f "$DEST/scripts/prompt-right-side" ]; then
 cp ./files/scripts/prompt-right-side "$DEST/scripts/"
 fi
 echo -e "\e[32mok\e[0m"
@@ -84,7 +73,7 @@ echo -n "→ cheatsheets ... "
 cp -r ./files/cheatsheets "$DEST"
 echo -e "\e[32mok\e[0m"
 
-if [ ! -f "$DEST"/aliases.sh ]; then
+if [ ! -f "$DEST/aliases.sh" ]; then
     echo -n "→ aliases ... "
     cp ./files/aliases.sh "$DEST"/aliases.sh
     echo -e "\e[32mok\e[0m"
