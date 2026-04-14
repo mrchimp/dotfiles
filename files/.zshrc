@@ -115,7 +115,7 @@ source ~/bash/aliases.sh
 source ~/scripts/pathadd ~/scripts
 source ~/aliases.sh
 
-export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.composer/vendor/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.composer/vendor/bin:$HOME/.local/bin:$HOME/.fzf/bin/"
 
 unsetopt share_history
 
