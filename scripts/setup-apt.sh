@@ -1,4 +1,4 @@
-#!/usr/bin/env bah
+#!/usr/bin/env bash
 
 read -p "Apt stuff? <y/N> " prompt
 if [[ $prompt == "y" || $prompt == "Y"]]; then
