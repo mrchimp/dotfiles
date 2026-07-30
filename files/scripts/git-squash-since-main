@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+MESSAGE="$*"
+
+if [[ -z $MESSAGE ]]; then
+  echo "Please provide a new commit message."
+  exit
+fi
+
+git reset --soft $(git merge-base HEAD main)
+git commit -m "$*"
